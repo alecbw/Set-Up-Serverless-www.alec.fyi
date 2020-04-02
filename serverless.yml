@@ -1,0 +1,35 @@
+service: test-stack
+
+provider:
+  name: aws
+  runtime: python3.7
+  stage: prod
+  region: us-west-2
+  logRetentionInDays: 120
+  versionFunctions: false
+  memorySize: 1024
+  timeout: 10
+  logs:
+    restApi: true
+  apiKeys:
+    - admin_key
+  tags:
+    deployment: serverless.com
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - lambda:InvokeFunction
+        - lambda:InvokeAsync
+      Resource:
+        - "*"
+
+
+functions:
+  test-lambda:
+    handler: handler.lambda_handler
+    events:
+      - http:
+          path: /test_lambda
+          method: get
+          private: true
