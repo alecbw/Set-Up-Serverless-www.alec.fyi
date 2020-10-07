@@ -26,4 +26,4 @@ sls remove
 ```
 
 # Costs
-All the resources fit easily in the AWS Free Tier and should have no ongoing costs. You are only billed for # and length of Lambda invocations
+All the resources fit easily in the AWS Free Tier and should have no ongoing costs. You are only billed for # and length of Lambda invocations. The Free Tier covers the first 1 million invocations / 111 compute-GB-hours per month, respectively.
